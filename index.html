@@ -9,53 +9,42 @@
   <meta name="theme-color" content="#111111" />
 </head>
 <body>
-  <header>
-    <h1>Planet Patterns (Generate + Fit)</h1>
-    <p>Venus (8 years) and Mars (3 years), sampled 2×/week, then fitted with an Option‑B harmonic model.</p>
-  </header>
+<header>
+  <h1>Planet Patterns</h1>
+  <p>Generate & fit Venus (8y) and Mars (3y) apparent motion patterns (2×/week).</p>
+</header>
 
-  <section class="controls">
-    <div class="row">
-      <label>Planet</label>
-      <select id="planet">
-        <option value="Venus">Venus (8y)</option>
-        <option value="Mars">Mars (3y)</option>
-      </select>
+<section class="controls">
+  <label>Planet</label>
+  <select id="planet">
+    <option value="Venus">Venus (8 years)</option>
+    <option value="Mars">Mars (3 years)</option>
+  </select>
 
-      <label>Harmonics</label>
-      <select id="kterms">
-        <option value="5" selected>5 frequencies</option>
-        <option value="7">7 frequencies</option>
-        <option value="9">9 frequencies</option>
-      </select>
+  <label>Harmonics</label>
+  <select id="harmonics">
+    <option value="5">5</option>
+    <option value="7">7</option>
+    <option value="9">9</option>
+  </select>
 
-      <button id="run">Generate + Fit</button>
-    </div>
-    <div class="row">
-      <div class="metrics" id="metrics">Press “Generate + Fit”.</div>
-    </div>
-  </section>
+  <button id="run">Generate + Fit</button>
+  <div id="metrics">Ready.</div>
+</section>
 
-  <main>
-    <div class="panel">
-      <h2>Generated vs Fitted Track</h2>
-      <canvas id="plot" width="900" height="700"></canvas>
-    </div>
+<main>
+  <canvas id="plot" width="900" height="700"></canvas>
+  <pre id="params"></pre>
+</main>
 
-    <div class="panel">
-      <h2>Fitted Parameters</h2>
-      <pre id="params"></pre>
-    </div>
-  </main>
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.2/astronomy.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjs@11.11.2/lib/browser/math.js"></script>
+<script type="module" src="js/app.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.2/astronomy.browser.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjs@11.11.2/lib/browser/math.js"></script>
-  <script src="app.js"></script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js');
-    }
-  </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+}
+</script>
 </body>
 </html>
