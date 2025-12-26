@@ -14,7 +14,13 @@ document.getElementById('run').onclick=()=>{
   plot(document.getElementById('plot'),track.x,track.y,fit.xh,fit.yh);
 
   document.getElementById('metrics').textContent='Samples: '+track.x.length;
-  document.getElementById('params').textContent=JSON.stringify({
-    planet,k,omegas:fit.omegas,coeff_x:fit.cx.toArray(),coeff_y:fit.cy.toArray()
-  },null,2);
+document.getElementById('params').textContent = JSON.stringify({
+  planet,
+  k,
+  periods: fit.usedPeriods,
+  omegas: fit.omegas,
+  coeff_x: fit.cx,
+  coeff_y: fit.cy
+}, null, 2);
+
 };
